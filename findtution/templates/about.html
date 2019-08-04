@@ -1,0 +1,423 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+        height: 26vw;
+    }
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        height: 30vw;
+    }
+
+    .row {
+        margin: 0 -5px;
+    }
+
+    .title {
+        color: grey;
+        font-size: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+    }
+
+    button:hover,
+    a:hover {
+        opacity: 0.7;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic);
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        line-height: 1.5;
+        color: #323232;
+        font-size: 15px;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+    }
+
+    .heading-title {
+        margin-bottom: 100px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .heading-title h3 {
+        margin-bottom: 0;
+        letter-spacing: 2px;
+        font-weight: normal;
+    }
+
+    .p-top-30 {
+        padding-top: 30px;
+    }
+
+    .half-txt {
+        width: 60%;
+        margin: 0 auto;
+        display: inline-block;
+        line-height: 25px;
+        color: #7e7e7e;
+    }
+
+    .text-uppercase {
+        text-transform: uppercase;
+    }
+
+    .team-member,
+    .team-member .team-img {
+        position: relative;
+    }
+
+    .team-member {
+        overflow: hidden;
+    }
+
+    .team-member,
+    .team-member .team-img {
+        position: relative;
+    }
+
+    .team-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        border: 20px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.90);
+        opacity: 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .team-member:hover .team-hover .desk {
+        top: 35%;
+    }
+
+    .team-member:hover .team-hover,
+    .team-member:hover .team-hover .desk,
+    .team-member:hover .team-hover .s-link {
+        opacity: 1;
+    }
+
+    .team-hover .desk {
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        opacity: 0;
+        -webkit-transform: translateY(-55%);
+        -ms-transform: translateY(-55%);
+        transform: translateY(-55%);
+        -webkit-transition: all 0.3s 0.2s;
+        transition: all 0.3s 0.2s;
+        padding: 0 20px;
+    }
+
+    .desk,
+    .desk h4,
+    .team-hover .s-link a {
+        text-align: center;
+        color: #222;
+    }
+
+    .team-member:hover .team-hover .s-link {
+        bottom: 10%;
+    }
+
+    .team-member:hover .team-hover,
+    .team-member:hover .team-hover .desk,
+    .team-member:hover .team-hover .s-link {
+        opacity: 1;
+    }
+
+    .team-hover .s-link {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        text-align: center;
+        -webkit-transform: translateY(45%);
+        -ms-transform: translateY(45%);
+        transform: translateY(45%);
+        -webkit-transition: all 0.3s 0.2s;
+        transition: all 0.3s 0.2s;
+        font-size: 35px;
+    }
+
+    .desk,
+    .desk h4,
+    .team-hover .s-link a {
+        text-align: center;
+        color: #222;
+    }
+
+    .team-member .s-link a {
+        margin: 0 10px;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .team-title {
+        position: static;
+        padding: 20px 0;
+        display: inline-block;
+        letter-spacing: 2px;
+        width: 100%;
+    }
+
+    .team-title h5 {
+        margin-bottom: 0px;
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .team-title span {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #a5a5a5;
+        letter-spacing: 1px;
+    }
+</style>
+
+<!-- END nav -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<section class="hero-wrap hero-wrap-2" style="background-image:url({% static 'images/bg3.jpg'%});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">About Us</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="/index/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
+                <div class="text px-4 ftco-animate">
+                    <h2 class="mb-4">Welcome to Find A Tution</h2>
+                    <p>FindaTution is India's one of the best and most trusted Learning Network. Our vision is to be one-stop learning partner for every Indian. With over 150 verified Individual Tutors, over 50 Institutes, we are a trusted partner of choice for
+                        more than 500 students and still counting, parents and professionals visiting us every month to fulfill learning requirements across more than various categories. Using FindaTution.com, students, parents and professionals can compare multiple Tutors,
+                        Trainers and Institutes and choose the ones that best suit their requirements.</p>
+
+                </div>
+            </div>
+            <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+                <h2 class="mb-4">What We Offer</h2>
+                <p>If you are a Tutor be it Academics, Yoga, Music or Dance you can get relevant enquiries based on your skills and offer coaching services based on your interest and convenience</p>
+                <div class="row mt-5">
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
+                            <div class="text">
+                                <h3>Best opportunity for Teachers</h3>
+                                <p>Our duty is to provide you the best opportunity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
+                            <div class="text">
+                                <h3>We provide great and experienced Teachers</h3>
+                                <p>Our duty is to provide you the best Teachers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
+                            <div class="text">
+                                <h3>All our teachers are certified</h3>
+                                <p>Our duty is to provide you the best Quality</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
+                            <div class="text">
+                                <h3>We provide you freedom to select your fees</h3>
+                                <p>Our duty is to provide you the best profits</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
+                            <div class="text">
+                                <h3>We motivate the Students to do their best</h3>
+                                <p>With us you will win definitely</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="services-2 d-flex">
+                            <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
+                            <div class="text">
+                                <h3>Every student has some best we bring it out</h3>
+                                <p>We bring the best out of every student</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<center><strong><h1>OUR TEAM</h1></strong></center>
+
+<section class="ftco-section ftco-no-pb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+                        <div class="img align-self-stretch" style="background-image:url({% static 'images/ashwani.jpg'%});"></div>
+                    </div>
+                    <div class="text pt-3 text-center">
+                        <h3>Ashwani Rana</h3>
+                        <span class="position mb-2">CO-FOUNDER</span>
+                        <div class="faded">
+                            <p>Challenges are what makes life interesting; overcoming them is what makes life meaningful.So I love Challenges </p>
+                            <ul class="ftco-social text-center">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+                        <div class="img align-self-stretch" style="background-image:url({% static 'images/rajat.jpg'%});"></div>
+                    </div>
+                    <div class="text pt-3 text-center">
+                        <h3>Rajat Singh</h3>
+                        <span class="position mb-2">CO-FOUNDER</span>
+                        <div class="faded">
+                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            <ul class="ftco-social text-center">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+                        <div class="img align-self-stretch" style="background-image:url({% static 'images/abhishek.jpg'%});"></div>
+                    </div>
+                    <div class="text pt-3 text-center">
+                        <h3>Abhishek Tiwari</h3>
+                        <span class="position mb-2">CO-FOUNDER</span>
+                        <div class="faded">
+                            <p>I just find myself happy with the simple things. Appreciating the blessings god gave me.</p>
+                            <ul class="ftco-social text-center">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+                        <div class="img align-self-stretch" style="background-image:url({% static 'images/gagan.jpg'%});"></div>
+                    </div>
+                    <div class="text pt-3 text-center">
+                        <h3>Gagan Kumar</h3>
+                        <span class="position mb-2">CO-FOUNDER</span>
+                        <div class="faded">
+                            <p>Coins always make sound but the currency notes are always silent! that’s why I’m always calm & silent.</p>
+                            <ul class="ftco-social text-center">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'js/google-map.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>
+{% endblock %}

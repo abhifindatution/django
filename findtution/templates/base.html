@@ -1,0 +1,83 @@
+ {% block head %}
+<style>
+    .footer {
+        background-color: black;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        position: bottom;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        color: white;
+
+        margin-bottom: -15px;
+    }
+        .fa {
+  padding: 7px;
+  font-size: 20px;
+  width: 30px;
+  height:30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #0a0a0a;
+  color: white;
+}
+.fa-instagram {
+  background: #0a0a0a;
+  color: white;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> {% load static %}
+<link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <a class="navbar-brand" href="/index/">FindATution</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/" class="nav-link pl-0">Home</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+
+
+                <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="/user_login/" class="nav-link">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %} {% block content %} {% endblock %}
+
+
+
+
+<div class="footer">
+    <p>Copyright &copy; FindATution |All rights reserved|<a href="https://www.facebook.com/Find-A-Tution-2643176622377640/" class="fa fa-facebook"></a>
+                        <a href="https://www.instagram.com/findatution/" class="fa fa-instagram"></a></p>
+</div>

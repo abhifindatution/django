@@ -1,0 +1,119 @@
+{% block head %}
+{% load static %}
+{% endblock %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style type="text/css">
+html,body{
+
+background: #FFEEEE;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #DDEFBB, #FFEEEE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-image :url({% static 'images/bh4.jpg'%});
+}
+
+.button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008CBA;
+    }
+
+    .button2:hover {
+        background-color: #008CBA;
+        color: white;
+    }
+
+      #graph-card {
+  background-color:Transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 97%;
+  min-height: 100px ;
+  margin: 5px;
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 10px;
+
+}
+</style>
+
+</head>
+<div class="container">
+
+   {% if registered %}
+                <h1>Thank you for registering!</h1>
+                 <button onclick="window.location.href='{% url 'findtution:index' %}'" class="button button2">Go Back To Home Page</button> {% else %}
+        <br>
+
+             {% load crispy_forms_tags %}
+
+            <button onclick="window.location.href='{% url 'findtution:index' %}'" class="button button2">Go Back To Home Page</button>
+            <div id="graph-card">
+                <h3 class="text-center">Yoga Student Registration  Form</h3>
+       <form  class="form-horizontal" role="form" enctype="multipart/form-data" method="POST">
+
+                        {% csrf_token %} {% load crispy_forms_tags %}
+                        <div class="row">
+                         <div class="form-group col-md-6 mb-0">
+                          {{ user_form.username|as_crispy_field }}
+                         </div>
+                         <div class="form-group col-md-6 mb-0">
+                          {{ user_form.password|as_crispy_field }}
+                         </div>
+                       </div>
+                          <div class="row">
+                         <div class="form-group col-md-6 mb-0">
+                          {{ profile_form4.email|as_crispy_field }}
+                         </div>
+                          <div class="form-group col-md-6 mb-0">
+                          {{ profile_form4.city|as_crispy_field }}
+                         </div>
+                         </div>
+                       
+                     <div class="row">
+                     
+                         <div class="form-group col-md-6 mb-0">
+                          {{ profile_form4.What_Yoga_form_want_to_learn|as_crispy_field }}
+                         </div>
+                         <div class="form-group col-md-6 mb-0">
+                          {{ profile_form4.Preferred_time|as_crispy_field }}
+                         </div>
+                     </div>
+                        <input class="btn btn-success btn-block" style="background: #3d6bce;" type="submit" name="" value="Register">
+                    </form>
+                     {% endif %}
+     </div>
+       <br>
+
+
+    </div>
+
+{% endblock %}

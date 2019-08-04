@@ -1,0 +1,48 @@
+{% extends "dappx/base.html" %} {% load staticfiles %} {% block body_block %}
+<style>
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    
+    .button5 {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+    }
+    
+    .button5:hover {
+        background-color: #555555;
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome to Find A Tution !</h1>
+
+
+
+        {# Some logic on what to display for last item#} {% if user.is_authenticated %}
+        <button onclick="window.location.href='{% url 'logout' %}'" class="button button5">Logout</button> {% else %}
+        <button onclick="window.location.href='{% url 'dappx:user_login' %}'" class="button button5">Login</button> {% endif %} {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }} Your data is sucessfully saved in our database , we will contact you in next 24 hours via E-mail. Thanks for Registration</h2>
+        {% else %}
+        <h2>Register if you'd like to</h2>
+        <button onclick="window.location.href='{% url 'dappx:signup' %}'" class="button button5">For Registration</button>
+        <button onclick="window.location.href='{% url 'findtution:index' %}'" class="button button5">Go Back To Home Page</button> {% endif %}
+    </div>
+</div>
+
+{% endblock %}
